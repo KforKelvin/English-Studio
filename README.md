@@ -9,4 +9,5 @@ how to deploy:
 6. wallah!
 
 
-Credit/cotributors
+Credit/cotributors:
+codyng,vpotter333,genesis-m959,philipely
