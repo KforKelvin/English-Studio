@@ -1,5 +1,4 @@
-website link on heroku: https://english-studios.herokuapp.com/
-
+My CSCE 315 final project
 
 how to deploy:
 1. cd to the directory
@@ -8,3 +7,6 @@ how to deploy:
 4. heroku git:remote -a salty-inlet-30441 (<- replace this if u wanna update another version)
 5. git pusth heroku HEAD:main
 6. wallah!
+
+
+Credit/cotributors
