@@ -1,0 +1,259 @@
+header{
+    background-color: #061240; 
+    height: fixed;
+    border-radius: 0%;
+    width: 100%;
+    padding: 1%;
+    margin-left: auto;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 25px;
+}
+
+sidebar {
+    width: 225px; /* Full-height: remove this if you want "auto" height */
+    height: 100%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color:#061240ab; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+.navbar-1,
+.navbar-2 {
+    padding-left: 10%;
+    padding-right: 10%;
+    transition:
+        padding-left 0.3s ease,
+        padding-right 0.3s ease;
+}
+
+.navbar-1:hover,
+.navbar-2:hover{
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.api-container {
+    flex: 100%;
+    width: 100%;
+    height: flex;
+    margin: 3%;
+    padding-left: 3%;
+    border: 3px double lightgrey;
+    background-color: #f2f2f2;
+}
+
+.row{
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.triple {
+    flex: 25%;
+    height: 100%;
+    width: 25%;
+    margin: auto;
+}
+
+.split {
+    height: flex;
+    margin: 3%;
+    padding: 10px;
+    border: 3px double lightgrey;
+    align-items: center;
+}
+
+navelement {
+    border: 1px solid black !important;
+    font-size: 11px; 
+    padding-left: 3%;
+    padding-top: 5px !important; 
+    padding-bottom:5px !important;
+}
+
+navtext {
+    padding: 5% !important;
+    padding-top: 7% !important;
+    padding-bottom: 7% !important;
+    font-size: 11px;
+    background-color: #FFDCE7
+}
+
+inputbar{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+div {
+    flex-wrap: wrap;
+}
+
+html{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-image: url("../images/ourwatermark.png");
+    padding-left: 225px;
+    padding-right: 0%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3vw;
+    color: white !important;
+    font-weight: bold; 
+}
+
+label {
+    font-size: 1vw;
+}
+
+p {
+    font-size: 1.3vw;
+}
+
+h4 {
+    font-size: 2vw;
+}
+
+#ourLogo {
+    display:block; 
+    margin: auto;
+    margin-bottom: 10%;
+}
+
+.custom-field {
+    position: relative;
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom: 5px;
+  }
+  
+.custom-field input {
+    border: 1px solid grey !important;
+    -webkit-appearance: none !important;
+    -ms-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background: #f2f2f2 !important;
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    width: 245px !important;
+    outline: none !important;
+    font-size: 18px !important;
+    padding-left: 20px !important;
+    margin-left: 4px !important;
+    transform: translateY(12%);
+}
+  
+.custom-field .placeholder {
+    position: absolute;
+    font-size: 18px;
+    left: 12px;
+    top: calc(50% + 13px);
+    transform: translateY(-50%);
+    color: rgb(153, 145, 145);
+    transition: 
+      top 0.3s ease,
+      color 0.3s ease,
+      font-size 0.3s ease;
+}
+  
+.custom-field input:valid + .placeholder,
+.custom-field input:focus + .placeholder {
+    top: 0px;
+    font-size: 10px;
+    color: rgb(185, 184, 184);
+}
+
+.no-button {
+    font-family: inherit;
+    position:relative;
+    background-color: white;
+    color:none;
+    border: none;
+    font-size: 40px;
+    border-radius: 5px;
+    transform: translateY(9%);
+    height: flex;
+    width: flex;
+    transition: 
+        background-color 0.2s ease;
+}
+.no-button:active, .no-button:focus{
+    background-color: rgba(92, 92, 92, 0.205);
+}
+
+.recbutton{
+    font-family: inherit;
+    font-size: 1.4vmax;
+    background-color: #f2f2f2;
+    border:none;
+    border-radius: 0px;
+    padding: 3px;
+    margin: auto;
+    text-align: center;
+    height: flex;
+    width: 100%;
+    transition: 
+        background-color 0.2s ease;
+}
+
+.button {
+    font-family: inherit;
+    font-size: 1.4vw;
+    position:relative;
+    background-color: #f2f2f2;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 3px;
+    height: flex;
+    width: flex;
+    transition: 
+        background-color 0.2s ease;
+}
+
+.recbutton:hover,
+.button:hover{
+    background-color: rgb(214, 214, 214);
+}
+
+.text_submit{
+    font-family: inherit;
+    position:relative;
+    background-color: #f2f2f2;
+    border: 1px solid grey;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    transform: translateY(9%);
+    height:86%;
+    transition: 
+        height 0.5s ease,
+        background-color 0.5s ease,
+        padding-left 0.5s ease;
+}
+
+.text_submit:hover{
+    height: 90%;
+    padding-left: 10px;
+    background-color: rgb(214, 214, 214);
+}
+
+.button:active,
+.text_submit:active{
+    background-color: rgb(165, 165, 165);
+    text-decoration-color: none;
+}
+
+.button:focus,
+.text_submit:focus{
+    background-color: rgb(194, 193, 193);
+    text-decoration-color: none;
+}

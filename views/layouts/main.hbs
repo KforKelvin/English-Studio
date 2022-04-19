@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+        crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>English Studios</title>
+    <style>
+        body{
+            background-color: #C2E0F9;
+        }
+        header{
+            color: white;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<sidebar>
+        <div class="logo">
+            <img id="ourLogo" src="images/logo.jpg" width="80%" height="80%" alt="center">
+        </div>
+        {{!-- This is the help/info section to teach users how to use the site --}}
+        <div class = "navbar-1">
+            <ul class="collapsible">
+                <li>
+                    <navelement class="collapsible-header" style="font-size: 14px;"><i class="fas fa-laugh-wink" style="font-size: 20px; padding-top:4%; padding-left:0%"></i><b>New to English Studios?</b></navelement>
+                    <navtext class="collapsible-body">
+                        <span>
+                     <b>How to use:</b><br>
+                                Type a word into the textbox that you find interesting or want to learn more about. When you press enter you will be given definitions and examples of the word. <br>
+                                The "Record" button will test your pronunciation or search up for a word for you. Just press record when you are ready and stop when you are finished. Then by pressing the get score button, it tells you how well you said a word. If it can recognize the word you said, it applies the word to the other categories.  <br>
+                                Finally, there is a button that says "Get a new word to learn." This button will enter a word into the textbox that our team found to be fun to learn or hard to pronounce.<br>
+
+                            <b>About:</b><br>
+                                At English Studios we want our users to learn in the way that best fits their style.
+                        </span>
+                    </navtext>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-2">
+            <ul class="collapsible">
+                <li>
+                    <navelement class="collapsible-header" style="font-size: 14px;"><i class="fas fa-palette" style="font-size: 20px; padding-top:4%; padding-left:0%"></i><b>Accessibility Options</b></navelement>
+                    <navtext class="collapsible-body">
+                        <span>
+                            <form action="#">
+                                <p>
+                                <label>
+                                    <input name="colorscheme" type="radio" id="default" checked>
+                                    <span style="padding:0%; padding-left:25%; width:100%; font-size: 11px; color: black">Default</span>
+                                </label>
+                                </p>
+                                <p>
+                                <label>
+                                    <input name="colorscheme" type="radio" id="RG" >
+                                    <span style="padding:0%; padding-left:25%; width:100%; font-size: 11px; color: black">Protanopia Filter</span>
+                                </label>  
+                                </p>
+                                <p>
+                                <label>
+                                    <input name="colorscheme" type="radio" id="BG">
+                                    <span style="padding:0%; padding-left:25%; width:100%; font-size: 11px; color: black">Tritanopia Filter</span>
+                                </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="colorscheme" type="radio" id="other">
+                                        <span style="padding:0%; padding-left:25%; width:100%; font-size: 11px; color: black">Low Contrast Filter</span>
+                                    </label>
+                                </p>
+                            </form>
+                        </span>
+                    </navtext>
+                </li>
+            </ul>
+        </div> 
+</sidebar>
+
+<body id="parallax">
+    {{!-- Sourcing Dictionary API and Youglish API javascript --}}
+    <script type='text/javascript' src='js/config.js'></script>
+    <script type='text/javascript' src='js/dictionary.js'></script>
+    <script type='text/javascript' src='js/youglish.js'></script>
+    <script type='text/javascript' src='js/script.js'></script>
+
+
+    {{!-- <header>
+        English Studios    
+    </header> --}}
+
+    <div id="dictionaryAPI">
+        {{!-- Universal textbox --}}
+        <div id = "container login-container" class="container login-container" style="width: 440px; margin: flex;"><div class="card" style="background: #061240ab;">
+            <div class="row" style="margin-top: 10%; margin-bottom: 4%; padding: 20px;">
+                <div id = "inputBox">
+                    <label class="custom-field">
+                        <input type="text" id="myText" name="fname" style="font-family:inherit" required />
+                        <span class="placeholder">Enter Text</span>
+                        <button class="text_submit" type="submit" id="submit_button" onclick = "getWordData(); extract_from_textbox(); setPractice();"><i class="fas fa-paper-plane"></i> Submit Word</button>
+                         
+                    </label>
+                </div>
+            </div>
+        </div></div>
+
+    {{!-- Speech API material --}}
+    <div id = "container login-container" class="container login-container" style="height: 100%; width: 100%; padding-left: 10%; padding-right:10%;"><div class="card">
+        <header>Speak it!</header>
+        <div class = "row" style="text-align: center;">  
+            <!-- Record user audio -->
+            <div class="split" style="background-color: none; vertical-align: center; border:none; flex:50%; width:50%;">
+            <div class="row" style="border: 3px outset lightgrey; padding:2%; margin-top:6%; margin-bottom:6%; background-color: #f2f2f2; text-align: center;
+                                justify-content: center; align-items: center;">
+                <div class="tripple" style="border-right: 1px solid grey; padding-right:10px;">
+                    <button class="recbutton" id="startRecord">Start Recording</button><br>
+                </div>
+                <div class="tripple">
+                    <button class="recbutton" style="padding-left:10px; padding-right:10px; margin-left:0px; margin-right:30px" id="pause" disabled>Pause</button><br>
+                </div>
+                <div class="tripple" style="border-left: 1px solid grey; padding-left:10px;">
+                    <button class="recbutton" id="stopRecord" disabled>Stop Recording</button>
+                </div>
+            </div>
+            </div>
+            <div class="split" style="background-color: #f2f2f2; flex:35%; width:35%; margin-left:0%;">
+                <!-- Process audio on server and display result -->
+                <p><b>Pronunciation Score </b></p>
+                <p><span id = "score"></span></p>
+                <button class="button" id="updateScore" disabled>Get score</button>
+            </div>
+        </div>
+        <div class="row" style="height: flex; padding-left: 3%;padding-right: 3%; padding-bottom: 3%;"><audio id="playback"></audio></div>
+    </div></div>
+
+
+    {{!-- Dictionary API material --}}
+    <div id = "container login-container" class="container login-container" style="width: 100%; padding-left: 10%; padding-right:10%;"><div class="card">
+            <header>Learn it!</header>
+            <div class="row">
+                <div class="api-container">
+                {{!-- Display word data gathered from Dictionary API --}}
+                <p><span id = "def"></span></p>
+                <p><span id = "syll"></span></p>
+                <p><span id = "sent"></span></p>
+                <br>
+            </div></div>
+             
+                <div class="row" style="height: flex; padding-left: 3%;padding-right: 3%;padding-bottom: 3%;">
+                    <audio id = "audioTag" controls>
+                        <source id = "audioClip" src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+    </div></div>
+
+
+    <div id="container login-container" class="container login-container" style="width: 100%; padding-left: 10%; padding-right:10%;">
+        <div class="card">
+            <header>Watch it!</header>
+            <div class="card-content">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    
+    {{!-- Script that runs materialize --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.collapsible').collapsible();
+        });
+
+        //Allows the user to press enter on the textbox
+        $(document).ready(function(){
+            $('#myText').keypress(function(e){
+            if(e.keyCode==13)
+                $('#submit_button').click();
+            });
+        });
+
+        const slow_scroll = document.getElementById("parallax")
+        window.addEventListener("scroll", function(){
+            let scroll_amt = window.pageYOffset;
+            slow_scroll.style.backgroundPositionY = scroll_amt * 0.5 + "px";
+        })
+
+    </script>
+
+
+    {{!-- <script>
+    function myFunction() {
+    // Get the checkbox
+    var checkBox = document.getElementById("myCheck");
+    // Get the output text
+    var text = document.getElementById("text");
+    // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+            
+        } else {
+            text.style.display = "none";
+    }
+    </script> --}}
+
+    
+    <!-- Loading scripts-->
+    <script type="text/javascript" src="js/newRecord.js"></script> <!-- Handles audio recording -->
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script> <!-- Audio encoding and recording -->
+</body>
+
+<svg xmlns="http://www.w3.org/2000/svg"version="1.1">
+<defs>
+    <filter id="low-contrast">
+    <feColorMatrix
+        values="0.817, 0.183, 0,     0, 0
+                0.333, 0.667, 0,     0, 0
+                0,     0.125, 0.875, 0, 0
+                0,     0,     0,     1, 0"/>
+        </filter>
+
+    <filter id="protanopia">
+    <feColorMatrix
+        values="0.567, 0.433, 0,     0, 0
+                0.558, 0.442, 0,     0, 0
+                0,     0.242, 0.758, 0, 0
+                0,     0,     0,     1, 0"/>
+        </filter>
+
+    <filter id="tritanopia">
+    <feColorMatrix
+        values="0.95, 0.05,  0,     0, 0
+                0,    0.433, 0.567, 0, 0
+                0,    0.475, 0.525, 0, 0
+                0,    0,     0,     1, 0"/>
+    </filter>
+</defs>
+</svg>
+
+</html>
